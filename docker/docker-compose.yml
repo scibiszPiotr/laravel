@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+    ports:
+      - "3324:3306/tcp"
+    healthcheck:
+      test: [ "CMD-SHELL", "mysql -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD -e \"SELECT 1\" $$MYSQL_DATABASE &> /dev/null" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+volumes:
+  db_data: {}
