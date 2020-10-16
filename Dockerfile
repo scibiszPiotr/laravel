@@ -78,7 +78,8 @@ COPY --chown=www-data:www-data . .
 RUN composer dump-autoload -o --apcu
 
 # ROUTINGS
-RUN composer package-discover && php artisan key:generate && php artisan config:cache
+RUN composer package-discover && php artisan key:generate
+RUN php artisan config:cache
 
 EXPOSE 8080
 ENTRYPOINT [ "./docker-entrypoint.sh" ]
