@@ -1,0 +1,14 @@
+# system
+/.git
+/.idea
+/.env
+/.DS_Store
+/.gitlab-ci.yml
+
+# glówne katalogi
+/vendor/
+/node_modules/
+
+/.vscode/**/*
+/.phpunit.result.cache
+coverage
