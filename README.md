@@ -5,4 +5,5 @@
 - composer install
 - cd docker
 - docker-compose -f docker-compose.yml -p laravel up -d (up application in separate network) 
+- add to /etc/hosts `127.0.0.1 laravel.dev.me`
 - https://laravel.dev.me

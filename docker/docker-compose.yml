@@ -9,7 +9,7 @@ services:
       --defaultEntryPoints='http,https' \
       --entryPoints='Name:http Address::80' \
       --entryPoints='Name:https Address::443 TLS' \
-      --entryPoints="Name:https Address::443 TLS:/etc/ssl/dev.me.crt,/etc/ssl/dev.me.key" \
+      --entryPoints="Name:https Address::443 TLS:/etc/ssl/cert.crt,/etc/ssl/cert.key" \
       --docker.exposedbydefault=false
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -44,7 +44,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=www-test"
-      - "traefik.frontend.rule=HostRegexp:laravel{suffix:.*}"
+      - "traefik.frontend.rule=Host:laravel.dev.me"
     environment:
       - ENV_TOKEN_ID=${ENV_TOKEN_ID-}
       - ENV_DOMAIN_ID=${ENV_DOMAIN_ID-.dev.me}
