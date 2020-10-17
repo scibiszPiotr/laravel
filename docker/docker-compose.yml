@@ -37,10 +37,10 @@ services:
       timeout: 30s
       retries: 3
 
-  www-test:
-    image: test-www:latest
-    container_name: www-test
-    hostname: www-test
+  laravel:
+    image: laravel:latest
+    container_name: laravel
+    hostname: laravel
     labels:
       - "traefik.enable=true"
       - "traefik.backend=www-test"
