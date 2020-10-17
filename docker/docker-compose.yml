@@ -9,7 +9,7 @@ services:
       --defaultEntryPoints='http,https' \
       --entryPoints='Name:http Address::80' \
       --entryPoints='Name:https Address::443 TLS' \
-      --entryPoints="Name:https Address::443 TLS:/etc/ssl/gr-dev.me.crt,/etc/ssl/gr-dev.me.key;/etc/ssl/local.gr-dev.me.crt,/etc/ssl/local.gr-dev.me.key" \
+      --entryPoints="Name:https Address::443 TLS:/etc/ssl/dev.me.crt,/etc/ssl/dev.me.key" \
       --docker.exposedbydefault=false
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -47,7 +47,7 @@ services:
       - "traefik.frontend.rule=HostRegexp:laravel{suffix:.*}"
     environment:
       - ENV_TOKEN_ID=${ENV_TOKEN_ID-}
-      - ENV_DOMAIN_ID=${ENV_DOMAIN_ID-.local.gr-dev.me}
+      - ENV_DOMAIN_ID=${ENV_DOMAIN_ID-.dev.me}
       - XDEBUG_ENABLE=${XDEBUG_ENABLE-no}
       - BLACKFIRE_ENABLE=${BLACKFIRE_ENABLE-no}
     volumes:

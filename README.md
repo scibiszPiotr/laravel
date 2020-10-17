@@ -3,4 +3,6 @@
 ## How to
 - git clone 
 - composer install
-- php artisan serve
+- cd docker
+- docker-compose -f docker-compose.yml -p laravel up -d (up application in separate network) 
+- https://laravel.dev.me
